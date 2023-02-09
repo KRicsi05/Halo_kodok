@@ -1,0 +1,44 @@
+ipconfig = hálózati tulajdonságok megjelenítése
+ping = kapcsolat ellenőrzése eszközök között
+1941 router - alap
+2960 switch - alap
+wpc300n - laptop wireless bővítőkártya
+cmd -> 127.0.0.1 = önellenőrzés
+redundancia = egy célállomáshoz több út is vezet
+sávszélesség = egy mp alatt átvihető bitek száma
+firmware = otthoni routerek operációs rendszer
+enable =  privilegizált EXEC mód (#)
+disable = felhasználói EXEC mód (>)
+show ip interface brief = interface-k megmutatása
+show ip interface = interface tulajdonságai
+ctrl + shift + 6 = parancs megszakítás
+
+--------------------
+Switch/Router set-up
+
+configure terminal = globális konfig mód
+1. hostname = névadás
+2. line console 0 = jelszó felhaasználói módhoz
+	password abc123 = jelszó beállítása
+	login = jelszó engedélyezése
+	end = kilépés
+3. enable secret abc123 = jelszó privilegizált EXEC módhoz
+4. line vty 0 15 = virtuális terminál vonalak
+	password abc113 = jelszó beállítás
+	login (local)
+	transport input all, ssh, telnet
+5. service password-encryption = jelszavak titkosítása
+6. banner motd #abc123# = napi üzenet
+7. interface interface neve
+	ip adress ip sn = ip + subnet mask hozzárendelés
+	no shutdown
+	exit
+8. ip domain name = domain megadása
+9. ip default gateway ip = alapértelmezett átjáró megadása
+10. username abc123 secret abc123
+11. crypto key generate rsa (1024)
+12. ip ssh version 2
+13. copy running-config startup-config = beállítások mentése
+--------------------
+
+
